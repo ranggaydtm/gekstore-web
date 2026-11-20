@@ -1,25 +1,35 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
 
   devtools: {
     enabled: true,
   },
 
-  modules: [
-    '@pinia/nuxt',
-    'shadcn-nuxt',
-  ],
+  app: {
+    head: {
+      title: "GEKSTORE",
+      meta: [
+        {
+          name: "description",
+          content: "GEKSTORE - Online Store Application",
+        },
+      ],
+    },
+  },
 
-  css: [
-    '~/assets/css/main.css',
-  ],
+  modules: ["@pinia/nuxt", "shadcn-nuxt"],
+
+  css: ["~/assets/css/main.css"],
 
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
-})
+
+  shadcn: {
+    prefix: "",
+    componentDir: "@/components/ui",
+  },
+});
